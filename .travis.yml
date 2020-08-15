@@ -13,8 +13,6 @@ before_install:
 - chmod 600 ~/.ssh/id_rsa
 - - echo -e "Host 47.115.13.71\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 - export TZ='Asia/Shanghai'
-- git submodule init
-- git submodule update
 
 addons:
   ssh_known_hosts: 47.115.13.71
