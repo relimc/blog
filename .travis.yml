@@ -30,7 +30,7 @@ script:
 - hexo generate
 
 after_success:
-- rsync -rv --delete -e 'ssh -o stricthostkeychecking=no' public/ root@47.115.13.71:/home/www/toadlive
+- rsync -rv --delete -e 'ssh -o stricthostkeychecking=no' public/ root@47.115.13.71:/home/www/toadlive/blog
 
 deploy:
   provider: pages
