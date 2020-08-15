@@ -1,13 +1,26 @@
 sudo: false
+
 language: node_js
+
 node_js:
-  - stable # use nodejs v10 LTS
+  - "v12.16.3" # use nodejs v10 LTS
+
 cache: npm
+
+before_install:
+- export TZ='Asia/Shanghai'  # 设置时区
+
 branches:
   only:
     - master # build master branch only
+
+git:
+  depth: 1
+  submodules: true
+
 script:
   - hexo generate # generate static files
+
 deploy:
   provider: pages
   skip-cleanup: true
