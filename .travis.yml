@@ -3,29 +3,39 @@ sudo: false
 language: node_js
 
 node_js:
-  - "v12.16.3" # use nodejs v10 LTS
+- v12.16.3
 
 cache: npm
 
 before_install:
-- export TZ='Asia/Shanghai'  # 设置时区
+- openssl aes-256-cbc -K $encrypted_a990903125e1_key -iv $encrypted_a990903125e1_iv
+  -in id_rsa.enc -out ~/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
+- - echo -e "Host 47.115.13.71\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- export TZ='Asia/Shanghai'
 - git submodule init
 - git submodule update
 
+addons:
+  ssh_known_hosts: 47.115.13.71
+
 branches:
   only:
-    - master # build master branch only
+  - master
 
 git:
   depth: 1
 
 script:
-  - hexo generate # generate static files
+- hexo generate
+
+after_success:
+- rsync -rv --delete -e 'ssh -o stricthostkeychecking=no' public/ root@47.115.13.71:/home/www/toadlive
 
 deploy:
   provider: pages
   skip-cleanup: true
-  github-token: $GH_TOKEN
+  github-token: "$GH_TOKEN"
   keep-history: true
   on:
     branch: master
