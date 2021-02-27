@@ -63,4 +63,3 @@ vim hudson.model.UpdateCenter.xml
 ```shell
 cat /home/workspace/jenkins_home/secrets/initialAdminPassword
 ```
-
