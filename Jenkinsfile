@@ -2,9 +2,6 @@ pipeline {
     agent {
         docker 'node:14.16.0-alpine3.12'
     }
-    triggers {
-        githubpush()
-    }
     stages {
         stage('Source') {
             steps {
