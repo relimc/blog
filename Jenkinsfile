@@ -7,8 +7,10 @@ pipeline {
     }
     stages {
         stage('Source') {
-            sh 'mkdir -p /home/code && cd /home/code'
-            sh 'git clone https://github.com/relimc/blog.git'
+            steps {
+                sh 'mkdir -p /home/code && cd /home/code'
+                git 'https://github.com/relimc/blog.git'
+            }
         }
         stage('bulid') {
             steps {
