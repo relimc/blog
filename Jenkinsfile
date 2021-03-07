@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Source') {
             steps {
-                git 'https://gitee.com/toadlive/blog.git'
+                git 'https://github.com/relimc/blog.git'
             }
         }
         stage('bulid') {
