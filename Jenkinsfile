@@ -10,7 +10,7 @@ pipeline {
         }
         stage('bulid') {
             steps {
-                sh 'npm install --registry=https://registry.npm.taobao.org hexo-cli'
+                sh 'npm install -g --registry=https://registry.npm.taobao.org hexo-cli'
                 sh 'npm install --registry=https://registry.npm.taobao.org'
                 sh 'hexo clean && hexo generate'
             }
