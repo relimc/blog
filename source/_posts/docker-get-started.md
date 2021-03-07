@@ -37,6 +37,7 @@ sudo systemctl restart docker
 
 ```shell
 docker run -d --name jenkins -p 8080:8080 -p 50000:50000 -v /home/workspace/jenkins_home:/var/jenkins_home --user=root jenkins/jenkins
+sudo docker run --name jenkins -p 8080:8080 -p 50000:50000 -v /volume2/data/jenkins_home:/var/jenkins_home --user=root --restart=always -v /var/run/docker.sock:/var/run/docker.sock jenkinsci/blueocean
 ```
 
 加速处理，切换为清华源
