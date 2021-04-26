@@ -39,3 +39,8 @@ $ hexo deploy
 ```
 
 More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+
+
+``` bash
+$ hexo new draft -s to-be-a-running-man 做一个会跑步的人
+```

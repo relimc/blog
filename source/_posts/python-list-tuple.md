@@ -359,3 +359,8 @@ if id1 == id2 :
 ```
 
 对于元组来说，其第三个元素是没变的，变的只是第三个元素本身。
+
+### 具名元组
+
+这部分内容可在这里阅读：[Python namedtuple](https://www.runoob.com/note/25726)
+
